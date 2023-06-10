@@ -1,8 +1,8 @@
-package dev.krysztal.flowy.analysizer
+package dev.krysztal.flowy.analyzer
 
-import dev.krysztal.flowy.analysizer.node.AnalysisInvokeDynamicNode
-import dev.krysztal.flowy.analysizer.node.AnalysisInvokeMethodNode
-import dev.krysztal.flowy.analysizer.node.AnalysisNode
+import dev.krysztal.flowy.analyzer.node.AnalysisInvokeDynamicNode
+import dev.krysztal.flowy.analyzer.node.AnalysisInvokeMethodNode
+import dev.krysztal.flowy.analyzer.node.AnalysisNode
 import org.objectweb.asm.Handle
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes

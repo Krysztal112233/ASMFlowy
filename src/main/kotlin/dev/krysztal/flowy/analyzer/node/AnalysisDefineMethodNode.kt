@@ -1,4 +1,4 @@
-package dev.krysztal.flowy.analysizer.node
+package dev.krysztal.flowy.analyzer.node
 
 import java.util.*
 

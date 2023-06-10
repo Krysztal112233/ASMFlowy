@@ -2,14 +2,13 @@ package dev.krysztal.flowy
 
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
-import dev.krysztal.flowy.analysizer.AnalysisPipeline
+import dev.krysztal.flowy.analyzer.AnalysisPipeline
 import dev.krysztal.flowy.passes.FlowyPass
 import kotlinx.cli.ArgParser
 import kotlinx.cli.ArgType
 import kotlinx.cli.default
 import kotlinx.cli.multiple
 import org.objectweb.asm.ClassReader
-import java.io.File
 import kotlin.io.path.*
 
 @OptIn(ExperimentalPathApi::class)
@@ -28,6 +27,7 @@ fun main(args: Array<String>) {
 
     parser.parse(args)
 
+    Thread.sleep(1)
     System.gc()
 
     // Build enabled pass
@@ -60,7 +60,7 @@ fun main(args: Array<String>) {
     if (path.notExists()) path.createDirectory()
 
     Path(path.toString(), "bytecode.json").toFile().writeText(
-        GsonBuilder().setPrettyPrinting().create().toJson(bytecodeAnalysis)
+        GsonBuilder().setPrettyPrinting().create().toJson(bytecodeAnalysis.toMap())
     )
 
 

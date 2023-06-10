@@ -1,8 +1,8 @@
-package dev.krysztal.flowy.analysizer
+package dev.krysztal.flowy.analyzer
 
-import dev.krysztal.flowy.analysizer.node.AnalysisClassNode
-import dev.krysztal.flowy.analysizer.node.AnalysisDefineMethodNode
-import dev.krysztal.flowy.analysizer.node.AnalysisNode
+import dev.krysztal.flowy.analyzer.node.AnalysisClassNode
+import dev.krysztal.flowy.analyzer.node.AnalysisDefineMethodNode
+import dev.krysztal.flowy.analyzer.node.AnalysisNode
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes

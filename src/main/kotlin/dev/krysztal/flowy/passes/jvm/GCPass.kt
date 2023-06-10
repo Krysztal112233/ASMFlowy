@@ -2,8 +2,8 @@ package dev.krysztal.flowy.passes.jvm
 
 import com.google.gson.JsonObject
 import dev.krysztal.flowy.Identifier
-import dev.krysztal.flowy.analysizer.node.AnalysisInvokeMethodNode
-import dev.krysztal.flowy.analysizer.node.AnalysisNode
+import dev.krysztal.flowy.analyzer.node.AnalysisInvokeMethodNode
+import dev.krysztal.flowy.analyzer.node.AnalysisNode
 import dev.krysztal.flowy.passes.FlowyPass
 import dev.krysztal.flowy.passes.FlowyReport
 
@@ -16,22 +16,17 @@ class GCPass : FlowyPass {
     }
 
     override fun analysis(node: AnalysisNode): FlowyReport? {
-        return Report(node)
+        return GCPassReport(node)
     }
 }
 
-private class Report(
+private class GCPassReport(
     private val node: AnalysisNode? = null,
+    override val reportName: Identifier = Identifier("jvm", "gc"),
 ) : FlowyReport {
-    override val reportName: Identifier get() = Identifier("jvm", "gc")
-
-    override fun fromJson(json: JsonObject) {
-        super.fromJson(json)
-    }
-
     override fun toJson(): JsonObject? {
         val jsonObject = JsonObject()
-        jsonObject.addProperty("invoke_gc", "In this class, invoked GC at analysis node ${node?.uuid}.")
+        jsonObject.addProperty("invoke_gc", "Invoke `System.gc` at node `${node?.uuid}`.")
         return jsonObject
     }
 }

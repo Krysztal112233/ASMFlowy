@@ -1,10 +1,9 @@
-package dev.krysztal.flowy.analysizer
+package dev.krysztal.flowy.analyzer
 
 import com.google.gson.JsonObject
 import dev.krysztal.flowy.Identifier
-import dev.krysztal.flowy.analysizer.node.AnalysisNode
+import dev.krysztal.flowy.analyzer.node.AnalysisNode
 import dev.krysztal.flowy.passes.FlowyPass
-import dev.krysztal.flowy.passes.FlowyReport
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes
 

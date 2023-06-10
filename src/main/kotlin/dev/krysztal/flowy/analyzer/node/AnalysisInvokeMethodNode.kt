@@ -1,15 +1,15 @@
-package dev.krysztal.flowy.analysizer.node
+package dev.krysztal.flowy.analyzer.node
 
-import org.objectweb.asm.Handle
 import java.util.*
 
-data class AnalysisInvokeDynamicNode(
+data class AnalysisInvokeMethodNode(
+    val opcode: Int,
+    val owner: String?,
     val name: String?,
     val descriptor: String?,
-    val bootstrapMethodHandle: Handle?,
-    val bootstrapMethodArguments: List<Any?>,
+    val isInterface: Boolean,
     var analysisTree: MutableList<AnalysisNode>? = null,
-    override val uuid: String = UUID.randomUUID().toString(),
+    override val uuid: String = UUID.randomUUID().toString()
 ) : AnalysisNode {
     override fun tree(): MutableList<AnalysisNode>? {
         return analysisTree
